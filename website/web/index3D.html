@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet 3D Map with GeoJSON</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <style>
+        #map { height: 100vh; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- OrbitControls.js (optional, for camera control) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/controls/OrbitControls.js"></script>
+    <!-- Leaflet.Threebox (plugin for integrating Three.js with Leaflet) -->
+    <script src="https://unpkg.com/threebox-plugin"></script>
+
+    <script>
+        // Initialize Leaflet map
+        const map = L.map('map').setView([51.505, -0.09], 13); // Example coordinates
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Initialize Threebox for 3D rendering
+        const tb = new Threebox({
+            map: map,
+            compared: true
+        });
+
+        // Load GeoJSON data
+        fetch('data/trees_layer.geojson')
+            .then(response => response.json())
+            .then(data => {
+                // Convert GeoJSON to Three.js geometries and add to the scene
+                const geojson = tb.loadGeoJson(data, {
+                    // Custom style options
+                    color: '#ff0000',
+                    opacity: 0.6,
+                    // Set other Three.js material options here
+                });
+                
+                // Add the GeoJSON layer to the map
+                map.addLayer(geojson);
+
+                // Optional: Add controls for camera manipulation
+                const controls = new THREE.OrbitControls(tb.camera, tb.renderer.domElement);
+                controls.enableDamping = true;
+                controls.dampingFactor = 0.25;
+                controls.enableZoom = true;
+            })
+            .catch(error => console.error('Error loading GeoJSON:', error));
+    </script>
+</body>
+</html>
