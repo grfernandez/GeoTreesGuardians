@@ -14,4 +14,4 @@ En GeoTrees Guardians, cada uno cuenta y se convierte en un guardián del futuro
 
 Únete a nosotros en esta épica misión de preservación y descubrimiento. Cada árbol que tocamos, cada dato que recolectamos, es un paso hacia un mundo más verde, más sano, y más unido. ¡Seamos los guardianes de nuestros GeoTrees, protectores del presente y arquitectos del futuro!
 
-<img src="itreeDataCenter.png" alt="" width="300"/>
+<img src="treeDataCenter.png" alt="" width="300"/>
