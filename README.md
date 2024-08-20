@@ -1,4 +1,4 @@
-# GeoTrees
+# GeoTreesGuardians
 GeoTrees Guardians es un proyecto comunitario que une a familias, amigos y vecinos en una misión trascendental: proteger y preservar nuestro entorno natural. A través de tecnologías como mapas geográficos, machine learning y la IA podemos brindar un entorno donde fluya la colaboración colectiva. 
 
 ¿Qué Hacemos?
