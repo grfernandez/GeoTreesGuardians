@@ -1,0 +1,9 @@
+Flask
+Werkzeug
+Flask-SQLAlchemy
+Flask-Redis
+redis
+psycopg2-binary
+pandas
+numpy
+python-dotenv

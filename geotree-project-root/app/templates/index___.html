@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo Trees Guardians</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Geo Tree Guardians</h1>
+        <h2>Donde la Naturaleza se expresa orgánicamente con Machine Learning e IA</h2>
+    </header>
+
+    <nav class="navbar">
+        <a href="#inicio" class="button">Inicio</a>
+        <a href="#quienes-somos" class="button">Quiénes Somos</a>
+        <a href="#proyecto" class="button">Proyecto</a>
+        <a href="#login" class="button">Login Guardianes</a>
+        <a href="#contacto" class="button">Contacto</a>
+        <a href="#Inglish" class="button">Inglish</a>
+        <a href="#Español" class="button">Español</a>
+        <a href="#Portugues" class="button">Portugues</a>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="sidebar">
+                <!-- Aquí se mostrará la información del árbol seleccionado -->
+                <h2>Tree Information</h2>
+                <div id="tree-info"></div>
+            </div>
+            <div class="map-container">
+                <div id="map">
+                                    <!-- Custom JS -->
+                    <script src="{{ url_for('static', filename='js/loadMaps.js') }}"></script>
+                    <!-- <script src="{{ url_for('static', filename='js/eventMaps.js') }}"></script>-->
+
+                </div>
+                <button onclick="addTree()">Add Tree</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mi Sitio de Naturaleza. Todos los derechos reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+# Archivos de entorno
+.env
+
+# Archivos de logs
+*.log
+*.h5
+
+# Archivos de bases de datos locales
+*.sqlite3
+
+# Archivos de compilación
+__pycache__/
+*.pyc
+
+# Ignorar todas las carpetas "data" y "models" en cualquier subdirectorio
+**/data/
+**/models/
+
+# Configuraciones de entornos virtuales de Python
+venv/
+
+# Ignorar todas las carpetas "logs" en cualquier subdirectorio
+logs/
+**/logs/
+
+# Ignorar logs específicos de Airflow
+airflow/logs/
+airflow_desa/logs/dag_processor_manager/
+airflow_desa/logs/
+airflow_desa/dags/models/
+# Ignorar el archivo específico identify_trees.h5
+airflow_desa/dags/models/identify_trees.h5
+
+# O para ignorar todos los archivos .h5 dentro de la carpeta models/
+airflow_desa/dags/models/*.h5
+
+
+# Ignorar archivos grandes de logs en Airflow
+geotree-project-root/airflow_desa/
+geotree-project-root/airflow_desa/logs/
+geotree-project-root/airflow_desa/dags/logs/
+
+# Ignorar archivos de modelos grandes en Airflow
+geotree-project-root/airflow_desa/dags/models/
+geotree-project-root/airflow_desa/dags/models/identify_trees.h5

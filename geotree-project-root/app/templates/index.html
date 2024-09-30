@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo Trees Guardians</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Bienvenidos al Bosque Digital</h1>
+        <h2>Donde la Naturaleza y la Tecnología se Encuentran</h2>
+    </header>
+
+    <div class="container">
+        <!-- Aquí se mostrará la información del árbol seleccionado -->
+        <!--<div class="sidebar">
+            
+            <h2>Tree Information</h2>
+            <div id="tree-info"></div>
+            <button onclick="addTree()">Add Tree</button>s
+        </div>
+        -->
+       
+
+        <div class="map-container">
+            <div id="map">
+               
+
+            </div>
+           
+        </div>
+    
+
+    
+</div>
+ <!--
+<footer>
+    <p>&copy; 2024 GeoTreeGuardians. Todos los derechos reservados.</p>
+    <div class="social-icons">
+        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+</footer>-->
+                 <!-- Custom JS -->
+                 <script src="{{ url_for('static', filename='js/loadMaps.js') }}"></script>
+                 <script src="{{ url_for('static', filename='js/eventMaps.js') }}"></script>
+</body>
+</html>

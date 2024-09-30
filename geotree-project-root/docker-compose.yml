@@ -1,0 +1,45 @@
+services:
+  db:
+    image: postgis/postgis:latest
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: geotree-project-root
+    ports:
+      - "5439:5432"
+    volumes:
+      - postgis_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    ports:
+      - "2181:2181"
+  web:
+    build: .
+    ports:
+      - "5555:5000"
+    volumes:
+      - ./app:/app  # Esto monta tu carpeta local app/ dentro del contenedor
+    env_file:
+      - .env
+    command: flask run --host=0.0.0.0  
+    depends_on:
+      - db
+      - redis     
+
+volumes:
+  postgis_data:

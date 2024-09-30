@@ -1,0 +1,98 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          -58.19686889346262,
+          -26.183376744174026
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "denominacion": "Lapacho Rosado1",
+        "especie": "Lapacho",
+        "foto": "/static/images/trees/lapachorosado.jpeg",
+        "gps": "(-58.19686889346262, -26.183376744174026)"},
+      "geometry": {
+        "coordinates": [
+          -58.19690977829997,
+          -26.1833828590903
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"denominacion": "Lapacho Rosado2",
+      "especie": "Lapacho",
+      "image": "/static/images/trees/lapachorosado.jpeg",
+      "gps": "(-58.19686889346262, -26.183376744174026)"},
+      "geometry": {
+        "coordinates": [
+          -58.19684455725036,
+          -26.183430031289205
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"denominacion": "Lapacho Rosado3",
+      "especie": "Lapacho",
+      "foto": "/static/images/trees/lapachorosado.jpeg",
+      "gps": "(-58.19686889346262, -26.183376744174026)"},
+      "geometry": {
+        "coordinates": [
+          -58.196822167934414,
+          -26.183483318381114
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"denominacion": "Lapacho Rosado4",
+      "especie": "Lapacho",
+      "image": "/static/images/trees/lapachorosado.jpeg",
+      "gps": "(-58.19686889346262, -26.183376744174026)"},
+      "geometry": {
+        "coordinates": [
+          -58.196805619309984,
+          -26.183528743423302
+        ],
+        "type": "Point"
+      }
+    },
+
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "denominacion": "Lapacho Rosado5",
+      "especie": "Lapacho - Autóctona",
+      "image": "/static/images/trees/lapachorosado2.jpeg",
+      "gps": "(-58.18158791627009, -26.165590907506747)"
+          },
+          "geometry": {
+            "coordinates": [
+              -58.18158791627009,
+              -26.165590907506747
+            ],
+            "type": "Point"
+          }
+        }
+      ]
+    }
+
+
+   
+  ]
+}

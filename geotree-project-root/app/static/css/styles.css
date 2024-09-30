@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e8f5e9; /* Verde claro, evocando vegetación */
+}
+
+#map {
+    width: 75%;
+    height: 100vh;
+    float: right;
+}
+
+.sidebar {
+    width: 20%;
+    height: 100vh;
+    background-color: #0f3f12; /* Verde oscuro, similar a la vegetación frondosa */
+    color: white;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    background-color: #ff9800; /* Color anaranjado, evocando flora exótica */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ef6c00;
+}

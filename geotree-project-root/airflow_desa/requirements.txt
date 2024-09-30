@@ -1,0 +1,6 @@
+pandas
+numpy
+scikit-learn
+matplotlib
+tensorflow
+mlflow==1.28.0
