@@ -31,7 +31,6 @@ def prepare_image(image_path):
 # Ruta de la API de predicción
 @predictspecie_blueprint.route('/predictspecie', methods=['POST'])
 def predictspecie():
-    file_path = None  # Inicializa el file_path para asegurarte de que siempre puedas borrarlo
     try:
         if 'file' not in request.files:
             return jsonify({'error': 'No file provided'}), 400
@@ -52,9 +51,12 @@ def predictspecie():
         predicted_class = np.argmax(predictions, axis=1)[0]
         predicted_species = species[predicted_class]
 
+        # Eliminar la imagen temporal después de predecir
+        os.remove(file_path)
+
         # Retornar el resultado en formato JSON
         return jsonify({'species': predicted_species})
-    
+        #return "OK"
     except Exception as e:
         # Capturar detalles del error
         error_message = str(e)
@@ -65,8 +67,3 @@ def predictspecie():
             'message': error_message,
             'traceback': error_traceback
         }), 500
-    
-    finally:
-        # Eliminar la imagen temporal después de predecir
-        if file_path and os.path.exists(file_path):
-            os.remove(file_path)
