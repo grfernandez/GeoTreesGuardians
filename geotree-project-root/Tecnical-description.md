@@ -7,14 +7,12 @@ This technical description will mention the logical and technical components tha
 
 ## 1.Infraestructure as Code
 
-
-
 Technological Stack: 
     Terraform - Docker 
 
 ## 2.Data Flow
 
-
+Apache Airflow and MLFlow
 
 ### 2.1 Data Lake
 
@@ -52,16 +50,17 @@ Use of development and training environments that allow collaborative work, cons
 
 ### 3.1 Collaborative repository
 ### 3.2 Local development
+
 Developer:
 
     Writes or updates code and tests.
     Runs pytest locally to verify the code.
 
-
 ### 3.3 Deployment
 Push to GitHub:
 
     Makes a commit and pushes the changes to the repository.
+    
 ### 3.4 Automated CI Pipeline
 GitHub Actions:
 

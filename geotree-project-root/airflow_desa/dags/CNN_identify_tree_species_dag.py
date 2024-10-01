@@ -15,8 +15,8 @@ import mlflow.keras
 
 
 # Definir la ruta relativa a la carpeta 'dags'
-#IMAGE_DIR = '/opt/airflow/dags/data/training/images/trees'
-IMAGE_DIR = '/opt/airflow/dags/data/processed/images/trees'
+IMAGE_DIR = '/opt/airflow/dags/data/training/images/trees'
+#IMAGE_DIR = '/opt/airflow/dags/data/processed/images/trees'
 #IMAGE_DIR = os.path.join(os.path.dirname(__file__), 'data', 'training', 'images', 'trees')
 # Ruta a los modelos
 MODEL_DIR = '/opt/airflow/dags/models'
@@ -159,14 +159,14 @@ def train_cnn_model():
 
         print(f"Validation Loss: {val_loss}, Validation Accuracy: {val_acc}")
 
-def save_data():
+def extract_images():
     # Aquí puedes incluir código para guardar y preparar los datos si es necesario
     pass
 
 # Define las tareas
-save_data_task = PythonOperator(
-    task_id='save_data',
-    python_callable=save_data,
+extract_images_task = PythonOperator(
+    task_id='extract_images',
+    python_callable=extract_images,
     dag=dag,
 )
 
@@ -177,4 +177,4 @@ train_cnn_model_task = PythonOperator(
 )
 
 # Define el flujo de tareas
-save_data_task >> train_cnn_model_task
+extract_images_task >> train_cnn_model_task
