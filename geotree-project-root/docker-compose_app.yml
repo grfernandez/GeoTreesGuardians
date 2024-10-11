@@ -28,14 +28,10 @@ services:
     image: confluentinc/cp-zookeeper:latest
     ports:
       - "2181:2181"
-  app:
+  web:
     build: .
-    container_name: app
     ports:
       - "5555:5000"
-    networks:
-      - default
-      - geotreeguardians_network 
     volumes:
       - ./app:/app  # Esto monta tu carpeta local app/ dentro del contenedor
     env_file:
@@ -47,7 +43,3 @@ services:
 
 volumes:
   postgis_data:
-
-networks:
-  geotreeguardians_network:
-    external: true

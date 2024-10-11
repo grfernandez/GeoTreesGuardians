@@ -16,7 +16,11 @@ start_docker_compose() {
   if [ "$dir" = "$AIRFLOW_DIR" ]; then
     echo "Starting docker-compose airflow"
      #(cd "$dir" && docker compose build --no-cache && docker compose up -d)
-     (cd "$dir" && docker compose up -d)
+    (cd "$dir" && docker compose up -d)
+  elif [ "$dir" = "$ELK_DIR" ]; then
+    echo "Starting docker-compose stack elk"
+    (cd "$dir" && docker compose up setup -d)
+    (cd "$dir" && docker compose up -d)
   else
     (cd "$dir" && docker compose up -d)
   fi  
@@ -55,11 +59,11 @@ setup_airflow
 
 cd ../..
 
-# Start the Docker Compose services
+ Start the Docker Compose services
 start_docker_compose "$AIRFLOW_DIR"
-start_docker_compose "$APP_DIR"
 start_docker_compose "$MLFLOW_DIR"
-#start_docker_compose "$ELK_DIR"
+start_docker_compose "$ELK_DIR"
+start_docker_compose "$APP_DIR"
 
 echo "All Docker Compose services have been started."
 

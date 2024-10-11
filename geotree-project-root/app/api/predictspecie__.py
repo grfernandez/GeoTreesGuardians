@@ -1,27 +1,16 @@
 import os
-import json
 from flask import Blueprint, request, jsonify
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
-import logging
 import numpy as np
 import traceback
-# Importamos el logger desde la carpeta app
-from app.logger import log_drift
-#from ..logger import log_drift
 
 # Crear el Blueprint para la API de predicción
 predictspecie_blueprint = Blueprint('predictspecie', __name__)
 
-# Configuración de logger
-logging.basicConfig(level=logging.INFO)
-
 # Cargar el modelo preentrenado
 MODEL_PATH = 'identify_trees.h5'
 model = load_model(MODEL_PATH)
-
-# Umbral para detección de drift
-CONFIDENCE_THRESHOLD = 0.7 
 
 # Lista de especies de árboles (ajústala con las etiquetas de tu modelo)
 species = ['LapachoAmarillo', 'LapachoBlanco', 'LapachoRosado', 'Palmera', 'PaloBorracho']
@@ -61,22 +50,6 @@ def predictspecie():
         predictions = model.predict(image)
         predicted_class = np.argmax(predictions, axis=1)[0]
         predicted_species = species[predicted_class]
-        # Calcular la confianza de la predicción
-        confidence = np.max(predictions)
-        confidence_str = str(confidence)
-
-
-        #drift_detected = confidence < CONFIDENCE_THRESHOLD
-
-       # Registrar el log de drift
-        log_drift(
-            feature="image", 
-            predicted_species=predicted_species, 
-            confidence=confidence, 
-            p_value=0.02,  # Puedes ajustar este valor según tu análisis
-            drift_detected = confidence < CONFIDENCE_THRESHOLD,
-            log_folder='uploads/logs'  # Cambia si detectas drift
-        )
 
         # Eliminar la imagen temporal después de predecir
         os.remove(file_path)
@@ -88,7 +61,7 @@ def predictspecie():
         # Capturar detalles del error
         error_message = str(e)
         error_traceback = traceback.format_exc()
-        logging.error(f"Error: {traceback.format_exc()}")
+        
         return jsonify({
             'error': 'Internal server error',
             'message': error_message,

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Predicción de Especies de Árboles</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylespredict.css') }}">
     <script>
         async function uploadFile(event) {
             event.preventDefault(); // Evita el comportamiento por defecto del formulario
@@ -20,11 +19,6 @@
             const formData = new FormData();
             formData.append('file', file);
 
-            // Muestra la imagen seleccionada
-            const imgElement = document.getElementById('uploadedImage');
-            imgElement.src = URL.createObjectURL(file);
-            imgElement.style.display = 'block'; // Muestra la imagen
-
             try {
                 const response = await fetch('http://localhost:5555/api/predictspecie', {
                     method: 'POST',
@@ -39,23 +33,17 @@
                 document.getElementById('result').textContent = 'Especie predicha: ' + result.species;
             } catch (error) {
                 console.error('Error:', error);
-                document.getElementById('result').textContent = 'Error al predecir la especie: ' + error.message;
+                document.getElementById('result').textContent = 'Error al predecir la especie.' + error.message;
             }
         }
     </script>
 </head>
 <body>
-    <div class="container">
-        <h1>Predicción de Especies de Árboles</h1>
-        <form id="uploadForm" onsubmit="uploadFile(event)">
-            <input type="file" id="fileInput" accept="image/*" required>
-            <button type="submit">Enviar</button>
-        </form>
-        
-        <div class="result-container">
-            <div id="result" class="prediction-result"></div>
-            <img id="uploadedImage" class="uploaded-image" src="" alt="Imagen del árbol" style="display: none;">
-        </div>
-    </div>
+    <h1>Predicción de Especies de Árboles</h1>
+    <form id="uploadForm" onsubmit="uploadFile(event)">
+        <input type="file" id="fileInput" accept="image/*" required>
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="result"></div>
 </body>
 </html>

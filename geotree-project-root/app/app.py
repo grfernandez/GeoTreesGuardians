@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from api.predictspecie import predictspecie_blueprint  # Importar el Blueprint desde predictspecie.py
+from .api.predictspecie import predictspecie_blueprint  # Importar el Blueprint desde predictspecie.py
 
 
 app = Flask(__name__)
